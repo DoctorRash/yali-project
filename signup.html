@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
+  integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" 
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Quicks Meet Signup</title>
+  <style>
+    /* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+}
+
+.signup-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.signup-container {
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content: center;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 900px;
+}
+
+/* Form Section */
+.form-section {
+  max-width: 600px;
+  padding: 20px;
+  background: #f0f8ff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.form-section h1 {
+  font-size: 2rem;
+  color: #007BFF;
+}
+
+.form-section h1 span {
+  font-weight: bold;
+}
+
+.tabs {
+  display: flex;
+  margin-top: 10px;
+}
+
+.tabs button {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: #007BFF;
+  font-weight: bold;
+}
+
+.tabs .active {
+  border-bottom: 3px solid #007BFF;
+}
+
+form {
+  margin-top: 20px;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+label input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #007BFF;
+  border-radius: 5px;
+  outline: none;
+}
+
+label i {
+  margin-right: 10px;
+  color: #007BFF;
+}
+
+label .toggle-password {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  color: #007BFF;
+}
+
+.create-account-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.create-account-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Social Login */
+.social-login {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.social-login button {
+  flex: 1;
+  margin: 0 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #444;
+}
+
+.social-login button i {
+  margin-right: 5px;
+  font-size: 18px;
+}
+
+/* Illustration Section */
+.illustration-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f8ff;
+}
+
+.illustration-section img {
+  max-width: 400px;
+  width: 100%;
+}
+  </style>
+</head>
+<body>
+  <div class="signup-page">
+    <div class="signup-container">
+    <div class="form-section">
+      <h1><span>Quicks</span> Meet</h1>
+      <div class="tabs">
+        <button class="active">Sign up</button>
+        <a href="./login.html"><button>Log in</button></a>
+      </div>
+      <p>Fill in your data to create an account.</p>
+      <form id="signupForm">
+        <label>
+          <i class="fas fa-user"></i>
+          <input type="text" id="signupName" placeholder="Enter your full name" required>
+        </label>
+        <label>
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="signupEmail" placeholder="Enter your email" required>
+        </label>
+        <label>
+          <i class="fas fa-lock"></i>
+          <input type="password" id="signupPassword" placeholder="Create a password" required>
+          <i class="fas fa-eye toggle-password"></i>
+        </label>
+        <label>
+          <i class="fas fa-lock"></i>
+          <input type="password" id="signupPassword" placeholder="Enter password again" required>
+          <i class="fas fa-eye toggle-password"></i>
+        </label>
+        <button type="submit" class="create-account-btn">Create an account</button>
+      </form>
+      <div class="social-login">
+        <button><i class="fab fa-google"></i> Google</button>
+        <button><i class="fab fa-apple"></i> Apple</button>
+        <button><i class="fab fa-facebook"></i> Facebook</button>
+      </div>
+    </div>
+    <div class="illustration-section">
+      <img src="./assets/img/login.png" alt="Signup Illustration">
+    </div>
+  </div>
+  </div>
+
+  <script>
+    // Select all password fields and the toggle buttons
+const togglePasswordButtons = document.querySelectorAll('.toggle-password');
+
+// Add click event listener to each toggle button
+togglePasswordButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    // Find the corresponding password input field
+    const passwordInput = button.previousElementSibling;
+
+    // Toggle password visibility
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      button.classList.remove('fa-eye');
+      button.classList.add('fa-eye-slash');
+    } else {
+      passwordInput.type = 'password';
+      button.classList.remove('fa-eye-slash');
+      button.classList.add('fa-eye');
+    }
+  });
+});
+// Signup Form Submission
+document.getElementById("signupForm").addEventListener("submit", function (e) {
+    e.preventDefault(); // Prevent the default form submission
+
+    // Get form data
+    const signupData = {
+        email: document.getElementById("signupEmail").value,
+        password: document.getElementById("signupPassword").value,
+        name: document.getElementById("signupName").value, // Optional name field
+    };
+
+    // Send signup data to the server
+    fetch("/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(signupData),
+    })
+        .then((response) => {
+            if (response.ok) {
+                alert("Signup successful! Please log in.");
+                window.location.href = "/login"; // Redirect to login page
+            } else {
+                alert("Signup failed. Please try again.");
+            }
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+            alert("An error occurred while signing up. Please try again.");
+        });
+});
+  </script>
+</body>
+</html>
